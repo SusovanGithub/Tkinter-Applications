@@ -118,45 +118,41 @@ def backward():
     statusBar.config(text=f'{index+1} of {length} images',width=101,anchor='e')
     
 
-##############################  Starts  ##############################
+##############################  Root  ##############################
 root = Tk()
 root.title('Image Viewer')
 root.geometry('1000x700')
-root.minsize(1000,700)
-root.maxsize(1000,700)
 ##############################  Search Bar  ##############################
 searchBar = Label(root)
-searchBar.pack(anchor='center')
+searchBar.pack(anchor='center', fill=BOTH)
 
 # * Entry Box
-searchBox = Entry(searchBar,width=71)
-searchBox.grid(row=0,column=0,sticky=E)
+searchBox = Entry(searchBar)
+searchBox.pack(anchor='center',fill=BOTH, side=LEFT ,expand=1)
 
 # * Buttons for Search Bar
 # browse Button
-Button(searchBar,text='Browse File', width=23, command=browse).grid(row=0,column=1,sticky='n')
+Button(searchBar,text='Browse File', width=23, command=browse).pack(anchor='center', side=LEFT, fill=BOTH)
 # open Button
-Button(searchBar,text='OPEN', width=23, command=openImg).grid(row=0,column=2,sticky='n')
+Button(searchBar,text='OPEN', width=23, command=openImg).pack(anchor='center', side=RIGHT, fill=BOTH)
 ##############################  Image Frame  ##############################
 imageFrame = LabelFrame(root)
-imageFrame.pack(anchor='center')
+imageFrame.pack(anchor='center',fill=BOTH,expand=1)
 
 # * Image Screen
-imgScn = Label(imageFrame,text='No Iamge is Selected', width =123, height = 42)
-imgScn.grid()
+imgScn = Label(imageFrame,text='No Iamge is Selected',pady=300)
+imgScn.pack(anchor='center',fill=BOTH)
 ##############################  Tarck Bar  ##############################
 trackBar = LabelFrame(root)
-trackBar.pack(anchor='center')
+trackBar.pack(anchor='center',fill=BOTH)
 
 # * Buttons for Track Bar
 # Backward Button
 backwardBT = Button(trackBar, state=DISABLED, text='BACKWARD', width=20, command=backward)
-backwardBT.grid(row=0,column=0)
-# Adding some spacing
-Label(trackBar, width=77).grid(row=0,column=1)
+backwardBT.pack(side=LEFT)
 # Forward Button
 forwardBT = Button(trackBar, state=DISABLED, text='FORWARD', width=20, command=forward)
-forwardBT.grid(row=0,column=2)
+forwardBT.pack(side=RIGHT)
 ##############################  Status Bar  ##############################
 # statusFrame = LabelFrame(root)
 # statusFrame.pack(anchor='center')
