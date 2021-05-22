@@ -75,6 +75,27 @@ def save_as_file():
 def exit_editor():
     exit()
 
+# * Function for Undo Method
+def undo_text():
+    pass
+
+# * Function for Redo Method
+def redo_text():
+    pass
+
+# * Function for Cut Method
+def cut_text():
+    pass
+
+# * Function for Copy Method
+def copy_text():
+    pass
+
+# * Function for Paste Method
+def paste_text():
+    pass
+
+
 ### root ###########################################################################
 # ! Global Variables
 file_name = None
@@ -91,18 +112,38 @@ root.config(menu=root_menu)             # Adding to the root
 file_menu = Menu(root_menu,tearoff=False)
 root_menu.add_cascade(label='File', menu=file_menu)
 # File Menu contents declaring
-file_menu.add_command(label='New File', command=create_new_file)
-file_menu.add_command(label='Open File...', command=open_file)
-file_menu.add_command(label='Save File', command=save_file, state=DISABLED)
-file_menu.add_command(label='Save As File...', command=save_as_file, state=DISABLED)
-file_menu.add_separator()
-file_menu.add_command(label='Exit', command=exit_editor)
+file_menu.add_command(label='New File', command=create_new_file)        # New File
+file_menu.add_command(label='Open File...', command=open_file)          # Open File
+file_menu.add_command(label='Save File', command=save_file, state=DISABLED)             # Save File
+file_menu.add_command(label='Save As File...', command=save_as_file, state=DISABLED)    # Save As File
+file_menu.add_separator()                                               # (Separator)
+file_menu.add_command(label='Exit', command=exit_editor)                # Exit
 
 # * Creating the Edit Menu
-edit_menu = Menu(root_menu)
+edit_menu = Menu(root_menu, tearoff=False)
+root_menu.add_cascade(label='Edit', menu=edit_menu)
+# Edit Menu contents declaring
+edit_menu.add_command(label='Undo',command=undo_text)                   # Undo
+edit_menu.add_command(label='Redo',command=redo_text)                   # Redo
+edit_menu.add_separator()                                               # (Separator)
+edit_menu.add_command(label='Cut',command=cut_text)                     # Cut
+edit_menu.add_command(label='Copy',command=copy_text)                   # Copy
+edit_menu.add_command(label='Paste',command=paste_text)                 # Paste
+edit_menu.add_separator()                                               # (Separator)
+
+# * Creating the View Menu
+view_menu= Menu(root_menu, tearoff=False)
+root_menu.add_cascade(label='View', menu=view_menu)
+# View Menu contents declaring
+view_menu.add_command(label='Font Style',command=None)                  # Font Style
+view_menu.add_command(label='Font Size',command=None)                   # Font Size
 
 # * Creating the Theme Menu
-theme_menu= Menu(root_menu)
+theme_menu= Menu(root_menu, tearoff=False)
+root_menu.add_cascade(label='Theme', menu=theme_menu)
+# Theme Menu contents declaring
+theme_menu.add_command(label='Theme 1',command=None)                    
+theme_menu.add_command(label='Theme 2',command=None)
 
 
 ### Read Write Frame ###############################################################
@@ -121,7 +162,6 @@ editor_box = Text(frame, state=DISABLED,
 editor_box.pack(side=LEFT,fill=BOTH,expand=True)
 # configuring the scrollbar 
 scrollbar.config(command=editor_box.yview)
-
 
 ### Main Loop ######################################################################
 root.mainloop()
