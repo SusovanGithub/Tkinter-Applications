@@ -5,11 +5,12 @@ degree_sign = u"\N{DEGREE SIGN}"
 
 class WeatherAPP():
     # * api key for connect the web server
-    __weather_api_key = "6ce73bb3b6e73bb5ac6b7089abc9f546"
+    __weather_api_key = "User API KEY"
     
     def __init__(self):
         self.root = Tk()
         self.root.geometry("400x400")
+        self.root.title('Weather App')
 
         # * Search Bar
         searchbar = Label(self.root)

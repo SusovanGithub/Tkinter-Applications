@@ -63,7 +63,6 @@ def save_file(event=False):
     
     title = file_loc.split('/')[-1]             # fetching the only file name
     root.title(title + ' - Text Editor')        # Display the name on the title bar
-    # todo: show a Massage box
 
 # * Function to Save As a File
 def save_as_file(event=False):
@@ -78,7 +77,6 @@ def save_as_file(event=False):
     with open(file_loc,'w') as file:
         file_content = editor_box.get(1.0,END)
         file.write(file_content[:-1])
-    # todo: show a Massage box
 
 # * Function to exit from the text editor
 def exit_editor(event=False):
