@@ -11,15 +11,15 @@ This Repository contents some Application based on mainly Tkinter GUI of Python.
 
 ## Text Editor
 
-![img](https://github.com/SusovanGithub/Tkinter-Applications/blob/master/assets/texteditor.gif)
+![img](https://github.com/DasBabuGH/Tkinter-Applications/blob/master/assets/texteditor.gif)
 
 ## Image Viewer
 
-![img](https://github.com/SusovanGithub/Tkinter-Applications/blob/master/assets/imageviewer.gif)
+![img](https://github.com/DasBabuGH/Tkinter-Applications/blob/master/assets/imageviewer.gif)
 
 ## Weather App
 
-![img](https://github.com/SusovanGithub/Tkinter-Applications/blob/master/assets/weatherapp.gif)
+![img](https://github.com/DasBabuGH/Tkinter-Applications/blob/master/assets/weatherapp.gif)
 
 
 <br>
