@@ -1,4 +1,6 @@
-from tkinter import *
+from tkinter import Tk,Menu,Frame,Scrollbar,Text
+from tkinter import NORMAL,DISABLED,INSERT,SEL_FIRST,SEL_LAST
+from tkinter import END,BOTH,NONE,LEFT,RIGHT,BOTTOM,VERTICAL,HORIZONTAL,X,Y
 from tkinter import filedialog as fd
 from tkinter import font
 

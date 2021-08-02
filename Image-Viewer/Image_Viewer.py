@@ -1,4 +1,5 @@
-from tkinter import *
+from tkinter import Tk,Label,Entry,LabelFrame,Button
+from tkinter import END,NORMAL,DISABLED,BOTH,LEFT,RIGHT
 from tkinter import filedialog as fd
 from tkinter.messagebox import showerror 
 from PIL import ImageTk,Image,UnidentifiedImageError
@@ -9,7 +10,7 @@ index = 0
 imgList=[]
 length=0
 
-##############################  Functions  ##############################
+###  Functions  ###############################################################
 # * Image Resizer
 def resizeImg(img):
     w, h = img.size
@@ -118,11 +119,12 @@ def backward():
     statusBar.config(text=f'{index+1} of {length} images',width=101,anchor='e')
     
 
-##############################  Root  ##############################
+###  Root  ####################################################################
 root = Tk()
 root.title('Image Viewer')
 root.geometry('1000x700')
-##############################  Search Bar  ##############################
+
+###  Search Bar  ##############################################################
 searchBar = Label(root)
 searchBar.pack(anchor='center', fill=BOTH)
 
@@ -135,14 +137,16 @@ searchBox.pack(anchor='center',fill=BOTH, side=LEFT ,expand=1)
 Button(searchBar,text='Browse File', width=23, command=browse).pack(anchor='center', side=LEFT, fill=BOTH)
 # open Button
 Button(searchBar,text='OPEN', width=23, command=openImg).pack(anchor='center', side=RIGHT, fill=BOTH)
-##############################  Image Frame  ##############################
+
+###  Image Frame  #############################################################
 imageFrame = LabelFrame(root)
 imageFrame.pack(anchor='center',fill=BOTH,expand=1)
 
 # * Image Screen
 imgScn = Label(imageFrame,text='No Iamge is Selected',pady=300)
 imgScn.pack(anchor='center',fill=BOTH)
-##############################  Tarck Bar  ##############################
+
+###  Tarck Bar  ###############################################################
 trackBar = LabelFrame(root)
 trackBar.pack(anchor='center',fill=BOTH)
 
@@ -153,11 +157,12 @@ backwardBT.pack(side=LEFT)
 # Forward Button
 forwardBT = Button(trackBar, state=DISABLED, text='FORWARD', width=20, command=forward)
 forwardBT.pack(side=RIGHT)
-##############################  Status Bar  ##############################
+
+###  Status Bar  ##############################################################
 # statusFrame = LabelFrame(root)
 # statusFrame.pack(anchor='center')
 statusBar = Label(root,width=100)
 statusBar.pack(anchor='e')
 
-##############################  Main Loop  ##############################
+###  Main Loop  ###############################################################
 root.mainloop()

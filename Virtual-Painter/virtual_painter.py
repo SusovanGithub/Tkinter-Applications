@@ -132,18 +132,27 @@ class App(Tk):
         self.mainloop()
     
     def choose_color(self):
+        '''
+        Method for the Color Picker
+        '''
         # variable to store hexadecimal code of color
         color = colorchooser.askcolor(title ="Choose color")
         self.mcolor = self.color = color[0]
         self.color_bucket_bt.config(bg=color[1])
     
     def pen(self):
+        '''
+        Method for the Pen
+        '''
         self.color = self.mcolor
         self.thickness = 5
         self.brush_size['text'] = 5
         self.color_bucket_bt['state'] = 'normal'
     
     def eraser(self):
+        '''
+        Method for the Eraser
+        '''
         self.mcolor = self.color
         self.color=(255,255,255)
         self.thickness = 20
@@ -151,14 +160,23 @@ class App(Tk):
         self.color_bucket_bt['state'] = 'disable'
     
     def change_thicness(self,i):
+        '''
+        Method for changing the thicness
+        '''
         if self.thickness + i != 0:
             self.thickness = self.thickness + i
             self.brush_size['text'] = self.thickness
 
     def clear(self,event=None):
+        '''
+        Method for Clear the Canvas
+        '''
         self.canvas_img = np.ones((self.height,self.width,3),dtype=np.int8) * 255
 
     def draw_hand(self,event=None):
+        '''
+        Method to toggle the display the hand landmarks
+        '''
         if self.drawhand:
             self.drawhand = False
             self.hand_bt['text'] = 'Show Hand'
@@ -167,6 +185,9 @@ class App(Tk):
             self.hand_bt['text'] = 'Hide Hand'
     
     def save_canvas(self,event=None):
+        '''
+        Method to save the Canvas
+        '''
         try:
             file_loc = fd.asksaveasfilename(master=self, initialdir = "./",
                                             title = "Save the Image",
@@ -179,6 +200,9 @@ class App(Tk):
             pass
 
     def engine(self):
+        '''
+        Method to Start the cam
+        '''
         if self.isrunning:
             self.cam.release()
             self.command_bt.config(text='Start')
@@ -200,6 +224,9 @@ class App(Tk):
     
     @staticmethod
     def get_landmarks(handLM,imgshape):
+        '''
+        Method to get the land marks into list formate
+        '''
         lm_list = []
         for ids, lm in enumerate(handLM.landmark):
             h, w = imgshape
@@ -207,6 +234,9 @@ class App(Tk):
         return lm_list
 
     def detect(self):
+        '''
+        Method to detect the hand from the Image
+        '''
         # Get the Frame
         _, frame = self.cam.read()
         
@@ -231,7 +261,6 @@ class App(Tk):
             lm_list = self.get_landmarks(handLM,(self.height,self.width))
 
             # all 5 fingers tips
-            x0, y0 = lm_list[4] 
             x1, y1 = lm_list[8]
             x2, y2 = lm_list[12]
             x3, y3 = lm_list[16]
@@ -306,6 +335,9 @@ class App(Tk):
         self.after_id = self.after(10,self.detect)
 
     def __del__(self):
+        '''
+        Method to destory the cam
+        '''
         try:
             if self.cam.isOpened():
                 self.cam.release()
