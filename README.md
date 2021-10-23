@@ -1,6 +1,11 @@
 #
 **<H1 align = "center">Tinker Applications</H1>**
 
+<!-- all project gif combined -->
+<div align="center">
+    <img height=30% src='assets/Tinker-Applications-main-gif.gif'/>
+</div>
+
 ## Description
 
 **Author** : Susovan Das
@@ -19,7 +24,7 @@ All Projects are Listed here
 
 ## Weather App
 
-![img](https://github.com/SusovanGithub/Tkinter-Applications/blob/master/assets/weatherapp.gif)
+![Weather App Image](https://github.com/SusovanGithub/Tkinter-Applications/blob/master/assets/weatherapp.gif)
 
 
 <br>
